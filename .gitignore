@@ -48,15 +48,7 @@ StyleCopReport.xml
 .history/
 .DS_Store
 
-# Ignore Angular build artifacts and temporary files
-node_modules/
-dist/
-out-tsc/
-tmp/
-src/**/*.js
-src/**/*.js.map
-src/**/*.d.ts
-.angular/cache/
+
 
 # Logs
 logs
@@ -109,12 +101,6 @@ build
 # dotenv environment variables file
 .env
 
-# Angular specific
-.angular/
-.angular-build/
-.angular-cache/
-.angular-cli.json
-.angular.json
 
 # Miscellaneous
 .DS_Store
