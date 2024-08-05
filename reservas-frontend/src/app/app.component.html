@@ -1,0 +1,21 @@
+<h1>Ejemplo de Angular 17 HttpClient</h1>
+
+<!-- Formulario de Creación/Edición de Reserva -->
+<h2>{{ selectedReserva ? 'Editar Reserva' : 'Crear Nueva Reserva' }}</h2>
+<app-reserva-create
+  [clientes]="clientes"
+  [servicios]="servicios"
+  [reserva]="selectedReserva"
+  (reservaCreada)="onReservaCreada()"></app-reserva-create>
+
+<!-- Lista de Reservas -->
+<h2>Lista de Reservas</h2>
+<ul>
+  <li *ngFor="let reserva of reservas" class="reserva-item">
+    <p>ID: {{ reserva.id }}</p>
+    <p>Cliente: {{ reserva.clienteNombre }}</p>
+    <p>Servicio: {{ reserva.servicioNombre }}</p>
+    <p>Fecha: {{ reserva.fecha | date:'medium' }}</p>
+    <button (click)="editReserva(reserva)">Editar</button>
+  </li>
+</ul>

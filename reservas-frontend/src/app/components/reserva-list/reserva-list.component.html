@@ -1,0 +1,9 @@
+<h1>Listado de Reservas</h1>
+<ul>
+  <li *ngFor="let reserva of reservas">
+    <p>ID: {{ reserva.id }}</p>
+    <p>Cliente: {{ reserva.clienteNombre }}</p>
+    <p>Servicio: {{ reserva.servicioNombre }}</p>
+    <p>Fecha: {{ reserva.fecha | date:'medium' }}</p>
+  </li>
+</ul>

@@ -1,67 +1,58 @@
 {
-  "hash": "426129ce",
-  "configHash": "78af26f7",
-  "lockfileHash": "e00b705d",
-  "browserHash": "2f73eeeb",
+  "hash": "42090bb9",
+  "configHash": "aa66c8a1",
+  "lockfileHash": "352f37ea",
+  "browserHash": "ca47196c",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "df44145a",
+      "fileHash": "04a6b2c2",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "6374241b",
+      "fileHash": "1861c8b3",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "5389382b",
+      "fileHash": "eb1e02b9",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "eb9c9714",
+      "fileHash": "a1ceb3e2",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "e992e131",
+      "fileHash": "eda0e457",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "ce50e7b8",
-      "needsInterop": false
-    },
-    "rxjs": {
-      "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
-      "file": "rxjs.js",
-      "fileHash": "4399ebf1",
+      "fileHash": "83b1fb24",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-BSFFDGDA": {
-      "file": "chunk-BSFFDGDA.js"
+    "chunk-I63TZRSD": {
+      "file": "chunk-I63TZRSD.js"
     },
-    "chunk-3N5CA433": {
-      "file": "chunk-3N5CA433.js"
+    "chunk-GFEVLJK6": {
+      "file": "chunk-GFEVLJK6.js"
     },
-    "chunk-XHU5GZOC": {
-      "file": "chunk-XHU5GZOC.js"
+    "chunk-SJQNNIAA": {
+      "file": "chunk-SJQNNIAA.js"
     },
-    "chunk-Z5H46ANP": {
-      "file": "chunk-Z5H46ANP.js"
-    },
-    "chunk-R7GQRDZ6": {
-      "file": "chunk-R7GQRDZ6.js"
+    "chunk-RBFO6OI2": {
+      "file": "chunk-RBFO6OI2.js"
     }
   }
 }

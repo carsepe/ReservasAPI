@@ -1,0 +1,26 @@
+<h2>Editar Reserva</h2>
+<form [formGroup]="reservaForm" (ngSubmit)="onSubmit()">
+  <label for="cliente">Cliente:</label>
+  <select formControlName="clienteId">
+    <option *ngFor="let cliente of clientes" [value]="cliente.id">{{ cliente.nombre }}</option>
+  </select>
+  <div *ngIf="reservaForm.get('clienteId')?.invalid && reservaForm.get('clienteId')?.touched">
+    Selecciona un cliente.
+  </div>
+
+  <label for="servicio">Servicio:</label>
+  <select formControlName="servicioId">
+    <option *ngFor="let servicio of servicios" [value]="servicio.id">{{ servicio.nombre }}</option>
+  </select>
+  <div *ngIf="reservaForm.get('servicioId')?.invalid && reservaForm.get('servicioId')?.touched">
+    Selecciona un servicio.
+  </div>
+
+  <label for="fecha">Fecha:</label>
+  <input type="datetime-local" formControlName="fecha">
+  <div *ngIf="reservaForm.get('fecha')?.invalid && reservaForm.get('fecha')?.touched">
+    Ingresa una fecha válida.
+  </div>
+
+  <button type="submit" [disabled]="reservaForm.invalid">Actualizar Reserva</button>
+</form>
