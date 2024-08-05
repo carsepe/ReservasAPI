@@ -8,6 +8,9 @@ Este proyecto es un sistema de reservas que permite a los usuarios gestionar res
 
 ![Diagrama de arquitectura](diagrama.png)
 
+## Diseño Frontend
+![Vista previa de la aplicacion](vista_previa.png)
+
 ## Configuración y Ejecución de la Aplicación
 
 ### Requisitos Previos
