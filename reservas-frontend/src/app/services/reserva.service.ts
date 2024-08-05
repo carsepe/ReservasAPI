@@ -17,9 +17,12 @@ export class ReservaService {
   createReserva(reserva: any): Observable<any> {
     return this.http.post(this.apiUrl, reserva);
   }
-  
+
   updateReserva(id: number, reserva: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/${id}`, reserva);
   }
-  
+
+  deleteReserva(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }

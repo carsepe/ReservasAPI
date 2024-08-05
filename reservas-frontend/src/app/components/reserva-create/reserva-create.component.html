@@ -1,25 +1,34 @@
-<form [formGroup]="reservaForm" (ngSubmit)="onSubmit()">
-  <label for="cliente">Cliente:</label>
-  <select formControlName="clienteId">
-    <option *ngFor="let cliente of clientes" [value]="cliente.id">{{ cliente.nombre }}</option>
-  </select>
-  <div *ngIf="reservaForm.get('clienteId')?.invalid && reservaForm.get('clienteId')?.touched">
-    Selecciona un cliente.
+<h2 class="text-center mb-4">{{ reserva ? 'Editar Reserva' : 'Crear Nueva Reserva' }}</h2>
+<form [formGroup]="reservaForm" (ngSubmit)="onSubmit()" class="row g-3">
+  <div class="col-md-4">
+    <label for="cliente" class="form-label">Cliente:</label>
+    <select formControlName="clienteId" class="form-select">
+      <option *ngFor="let cliente of clientes" [value]="cliente.id">{{ cliente.nombre }}</option>
+    </select>
+    <div *ngIf="reservaForm.get('clienteId')?.invalid && reservaForm.get('clienteId')?.touched" class="invalid-feedback">
+      Selecciona un cliente.
+    </div>
   </div>
 
-  <label for="servicio">Servicio:</label>
-  <select formControlName="servicioId">
-    <option *ngFor="let servicio of servicios" [value]="servicio.id">{{ servicio.nombre }}</option>
-  </select>
-  <div *ngIf="reservaForm.get('servicioId')?.invalid && reservaForm.get('servicioId')?.touched">
-    Selecciona un servicio.
+  <div class="col-md-4">
+    <label for="servicio" class="form-label">Servicio:</label>
+    <select formControlName="servicioId" class="form-select">
+      <option *ngFor="let servicio of servicios" [value]="servicio.id">{{ servicio.nombre }}</option>
+    </select>
+    <div *ngIf="reservaForm.get('servicioId')?.invalid && reservaForm.get('servicioId')?.touched" class="invalid-feedback">
+      Selecciona un servicio.
+    </div>
   </div>
 
-  <label for="fecha">Fecha:</label>
-  <input type="datetime-local" formControlName="fecha">
-  <div *ngIf="reservaForm.get('fecha')?.invalid && reservaForm.get('fecha')?.touched">
-    Ingresa una fecha válida.
+  <div class="col-md-4">
+    <label for="fecha" class="form-label">Fecha:</label>
+    <input type="datetime-local" formControlName="fecha" class="form-control">
+    <div *ngIf="reservaForm.get('fecha')?.invalid && reservaForm.get('fecha')?.touched" class="invalid-feedback">
+      Ingresa una fecha válida.
+    </div>
   </div>
 
-  <button type="submit" [disabled]="reservaForm.invalid">{{ reserva ? 'Actualizar Reserva' : 'Crear Reserva' }}</button>
+  <div class="col-md-4">
+    <button type="submit" class="btn btn-primary" [disabled]="reservaForm.invalid">{{ reserva ? 'Actualizar Reserva' : 'Crear Reserva' }}</button>
+  </div>
 </form>

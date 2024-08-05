@@ -1,0 +1,31 @@
+<!-- cliente-create.component.html -->
+<h2 class="text-center mb-4">Crear Nuevo Cliente</h2>
+<form [formGroup]="clienteForm" (ngSubmit)="onSubmit()" class="row g-3">
+  <div class="col-md-6">
+    <label for="nombre" class="form-label">Nombre:</label>
+    <input type="text" formControlName="nombre" class="form-control" id="nombre" [ngClass]="{'is-invalid': clienteForm.get('nombre')?.invalid && clienteForm.get('nombre')?.touched}">
+    <div *ngIf="clienteForm.get('nombre')?.invalid && clienteForm.get('nombre')?.touched" class="invalid-feedback">
+      Ingresa un nombre válido.
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <label for="email" class="form-label">Email:</label>
+    <input type="email" formControlName="email" class="form-control" id="email" [ngClass]="{'is-invalid': clienteForm.get('email')?.invalid && clienteForm.get('email')?.touched}">
+    <div *ngIf="clienteForm.get('email')?.invalid && clienteForm.get('email')?.touched" class="invalid-feedback">
+      Ingresa un email válido.
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <label for="numeroDocumento" class="form-label">Número de Documento:</label>
+    <input type="text" formControlName="numeroDocumento" class="form-control" id="numeroDocumento" [ngClass]="{'is-invalid': clienteForm.get('numeroDocumento')?.invalid && clienteForm.get('numeroDocumento')?.touched}">
+    <div *ngIf="clienteForm.get('numeroDocumento')?.invalid && clienteForm.get('numeroDocumento')?.touched" class="invalid-feedback">
+      Ingresa un número de documento válido.
+    </div>
+  </div>
+
+  <div class="col-md-6 d-grid">
+    <button type="submit" class="btn btn-primary" [disabled]="clienteForm.invalid">Crear Cliente</button>
+  </div>
+</form>

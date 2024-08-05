@@ -96,7 +96,10 @@ namespace Reservas.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> ActualizarReserva(int id, [FromBody] ReservaCreateDto reservaDto)
         {
-            if (id != reservaDto.ClienteId)
+            // Cambia esto:
+            // if (id != reservaDto.ClienteId)
+            // A esto:
+            if (id != reservaDto.Id)
             {
                 return BadRequest("ID de la reserva no coincide");
             }
@@ -121,6 +124,7 @@ namespace Reservas.Controllers
 
             return NoContent();
         }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> EliminarReserva(int id)

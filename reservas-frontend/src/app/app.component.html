@@ -1,21 +1,88 @@
-<h1>Ejemplo de Angular 17 HttpClient</h1>
+<h1 class="text-center my-4">Sistema de reservas</h1>
+
+<!-- Botones para Crear Cliente y Crear Servicio -->
+<div class="container mb-4 text-end">
+  <button class="btn btn-success me-2" (click)="toggleClienteForm()">
+    {{ showClienteForm ? 'Ocultar Cliente' : 'Crear Cliente' }}
+  </button>
+  <button class="btn btn-success" (click)="toggleServicioForm()">
+    {{ showServicioForm ? 'Ocultar Servicio' : 'Crear Servicio' }}
+  </button>
+</div>
+
+<!-- Formulario de Creación de Cliente -->
+<div class="container mb-4" *ngIf="showClienteForm">
+  <app-cliente-create (clienteCreado)="onClienteCreado()"></app-cliente-create>
+</div>
+
+<!-- Formulario de Creación de Servicio -->
+<div class="container mb-4" *ngIf="showServicioForm">
+  <app-servicio-create (servicioCreado)="onServicioCreado()"></app-servicio-create>
+</div>
 
 <!-- Formulario de Creación/Edición de Reserva -->
-<h2>{{ selectedReserva ? 'Editar Reserva' : 'Crear Nueva Reserva' }}</h2>
-<app-reserva-create
-  [clientes]="clientes"
-  [servicios]="servicios"
-  [reserva]="selectedReserva"
-  (reservaCreada)="onReservaCreada()"></app-reserva-create>
+<div class="container mb-4">
+  <app-reserva-create
+    [clientes]="clientes"
+    [servicios]="servicios"
+    [reserva]="selectedReserva"
+    (reservaCreada)="onReservaCreada()"
+  ></app-reserva-create>
+</div>
 
-<!-- Lista de Reservas -->
-<h2>Lista de Reservas</h2>
-<ul>
-  <li *ngFor="let reserva of reservas" class="reserva-item">
-    <p>ID: {{ reserva.id }}</p>
-    <p>Cliente: {{ reserva.clienteNombre }}</p>
-    <p>Servicio: {{ reserva.servicioNombre }}</p>
-    <p>Fecha: {{ reserva.fecha | date:'medium' }}</p>
-    <button (click)="editReserva(reserva)">Editar</button>
-  </li>
-</ul>
+<!-- Filtros -->
+<div class="container mb-4">
+  <h2 class="mb-3">Filtros</h2>
+  <div class="row g-3">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="filterCliente" class="form-label">Cliente:</label>
+        <select id="filterCliente" class="form-control" [(ngModel)]="filterCliente">
+          <option value="">Todos</option>
+          <option *ngFor="let cliente of clientes" [value]="cliente.id">{{ cliente.nombre }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="filterServicio" class="form-label">Servicio:</label>
+        <select id="filterServicio" class="form-control" [(ngModel)]="filterServicio">
+          <option value="">Todos</option>
+          <option *ngFor="let servicio of servicios" [value]="servicio.id">{{ servicio.nombre }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="filterFecha" class="form-label">Fecha:</label>
+        <input type="date" id="filterFecha" class="form-control" [(ngModel)]="filterFecha">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h2 class="mb-3">Lista de Reservas</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Servicio</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reserva of filteredReservas()">
+        <td>{{ reserva.id }}</td>
+        <td>{{ reserva.clienteNombre }}</td>
+        <td>{{ reserva.servicioNombre }}</td>
+        <td>{{ reserva.fecha | date: 'medium' }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm me-2" (click)="editReserva(reserva)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteReserva(reserva.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

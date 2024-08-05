@@ -54,15 +54,23 @@ export class ReservaCreateComponent implements OnInit, OnChanges {
     if (this.reservaForm.valid) {
       if (this.reserva) {
         // Actualizar reserva existente
-        this.reservaService.updateReserva(this.reserva.id, this.reservaForm.value).subscribe(() => {
+        const reservaActualizada = {
+          ...this.reserva,
+          ...this.reservaForm.value
+        };
+        this.reservaService.updateReserva(this.reserva.id, reservaActualizada).subscribe(() => {
           this.reservaCreada.emit();
           this.reservaForm.reset();
+        }, error => {
+          console.error('Error al actualizar la reserva: ', error);
         });
       } else {
         // Crear nueva reserva
         this.reservaService.createReserva(this.reservaForm.value).subscribe(() => {
           this.reservaCreada.emit();
           this.reservaForm.reset();
+        }, error => {
+          console.error('Error al crear la reserva: ', error);
         });
       }
     }

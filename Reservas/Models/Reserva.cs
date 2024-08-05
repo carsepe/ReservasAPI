@@ -23,6 +23,9 @@ namespace Reservas.Models
     public class ReservaCreateDto
     {
         [Required]
+        public int Id { get; set; }
+
+        [Required]
         public int ClienteId { get; set; }
 
         [Required]
@@ -31,4 +34,5 @@ namespace Reservas.Models
         [Required]
         public DateTime Fecha { get; set; }
     }
+
 }

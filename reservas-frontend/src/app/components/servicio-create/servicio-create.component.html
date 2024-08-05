@@ -1,0 +1,12 @@
+<h2 class="text-center mb-4">Crear Nuevo Servicio</h2>
+<form [formGroup]="servicioForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre:</label>
+    <input type="text" formControlName="nombre" class="form-control" id="nombre" [ngClass]="{'is-invalid': servicioForm.get('nombre')?.invalid && servicioForm.get('nombre')?.touched}">
+    <div *ngIf="servicioForm.get('nombre')?.invalid && servicioForm.get('nombre')?.touched" class="invalid-feedback">
+      Ingresa un nombre válido.
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="servicioForm.invalid">Crear Servicio</button>
+</form>
