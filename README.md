@@ -8,14 +8,6 @@ Este proyecto es un sistema de reservas que permite a los usuarios gestionar res
 
 ![Diagrama de arquitectura](diagrama.png)
 
-```plaintext
-+-----------------+        +--------------------+        +-----------------+
-|                 |        |                    |        |                 |
-|   Frontend      +-------->   Backend API      +-------->    Database     |
-|   (Angular 17)  |        |   (ASP.NET Core)   |        |   (SQL Server)  |
-|                 |        |                    |        |                 |
-+-----------------+        +--------------------+        +-----------------+
-
 ## Configuración y Ejecución de la Aplicación
 
 ### Requisitos Previos
